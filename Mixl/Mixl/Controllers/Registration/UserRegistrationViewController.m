@@ -161,8 +161,15 @@
         [paramDic setObject:_txtFirstName.text forKey:@"firstname"];
         [paramDic setObject:_txtLastName.text forKey:@"lastname"];
         [paramDic setObject:_txtEmail.text forKey:@"email"];
-        //[paramDic setObject:[commonUtils md5:self.userPasswordTextField.text] forKey:@"user_password"];
+//        [paramDic setObject:[commonUtils md5:self.userPasswordTextField.text] forKey:@"user_password"];
         [paramDic setObject:_txtPassword.text forKey:@"password"];
+        
+//        [paramDic setObject:@"nan9" forKey:@"firstname"];
+//        [paramDic setObject:@"li" forKey:@"lastname"];
+//        [paramDic setObject:@"u@nan9.com" forKey:@"email"];
+//        [paramDic setObject:@"123456" forKey:@"password"];
+        
+        
         
         NSString *bithday;
         bithday = [NSString stringWithFormat:@"%@-%@-%@", _txtYear.text, [month objectAtIndex:monthSelected], _txtDay.text];
@@ -178,6 +185,7 @@
             }];
             
         }
+        NSLog(@"----------current params : %@", paramDic);
         
         if(_btnMale.selected == YES) [paramDic setObject:@"m" forKey:@"gender"];
         else [paramDic setObject:@"f" forKey:@"gender"];

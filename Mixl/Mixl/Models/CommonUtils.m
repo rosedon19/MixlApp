@@ -717,6 +717,9 @@
     NSURL *url = [NSURL URLWithString:urlStr];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    [params setObject:[commonUtils getUserDefault:@"user_apns_id"] forKey:@"io_token"];
+    
     NSString *body = [[SBJsonWriter new] stringWithObject:params];
     NSData *requestData = [body dataUsingEncoding:NSASCIIStringEncoding];
     
@@ -737,7 +740,9 @@
     NSURL *url = [NSURL URLWithString:urlStr];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    [params setObject:[commonUtils getUserDefault:@"user_apns_id"] forKey:@"io_token"];
     NSString *body = [[SBJsonWriter new] stringWithObject:params];
+    
     NSData *requestData = [body dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authorized_token = [commonUtils getUserDefault:@"authorized_token"];
     

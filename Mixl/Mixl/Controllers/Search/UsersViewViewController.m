@@ -80,10 +80,11 @@
 }
 
 - (void) requestFriend:(id) params {
-    
+    NSLog(@"---- URL: %@", API_URL_FRIEND);
+    NSLog(@"---- Request: %@", params);
     NSDictionary *resObj = nil;
     resObj = [commonUtils myhttpJsonRequest:API_URL_FRIEND withJSON:(NSMutableDictionary *) params];
-    
+        NSLog(@"---------- Response Result:\n%@", resObj);
     [JSWaiter HideWaiter];
     
     if (resObj != nil) {

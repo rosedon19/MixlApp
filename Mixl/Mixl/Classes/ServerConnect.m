@@ -27,7 +27,7 @@
 }
 
 - (void)GET:(NSString *)url
- withParams:(NSDictionary *)params
+ withParams:(NSMutableDictionary *)params
   onSuccess:(SuccessBlock)completionBlock
   onFailure:(FailureBlock)failureBlock
 {
@@ -40,6 +40,7 @@
         failureBlock(-1, nil);
         return;
     }
+    [params setObject:[commonUtils getUserDefault:@"user_apns_id"] forKey:@"io_token"];
     
     NSLog(@"GET url : %@", url);
     NSLog(@"GET param : %@", params);
